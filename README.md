@@ -1,29 +1,47 @@
 # vue-number-range
 
-## Project setup
+## vue-number-range
 ```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
+数字范围输入组件
 ```
 
-### Compiles and minifies for production
+### Install
 ```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
+npm i -S number-range
 ```
 
-### Lints and fixes files
+### Preview
+
 ```
-npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Usage
+
+```
+<template>
+    <div id="app">
+        <NumberRange :small.sync="small" :big.sync="big" :min="range[0]" :max="range[1]"  rangeSeparator="~" placeholder="价格"/>
+    </div>
+</template>
+
+<script>
+import NumberRange from './components/index'
+
+export default {
+    name: 'app',
+    data () {
+        return {
+            small: 10,
+            big: 20,
+            range: [0, 100]
+        }
+    },
+    components: {
+        NumberRange
+    }
+}
+</script>
+
+```
+
+

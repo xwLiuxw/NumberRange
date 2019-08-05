@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <NumberRange :small.sync="small" :big.sync="big"  rangeSeparator="~" placeholder="价格"/>
+        <NumberRange :small.sync="small" :big.sync="big" :min="range[0]" :max="range[1]"  rangeSeparator="~" placeholder="价格"/>
     </div>
 </template>
 
