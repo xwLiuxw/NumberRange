@@ -1,8 +1,8 @@
 <template>
     <div class="box">
-        <input type="number" v-model="smallNum" @blur="smallBlur" />
+        <input type="number" v-model="smallNum" @blur="smallBlur" :placeholder="placeholder"/>
         <span class="separator">{{ rangeSeparator }}</span>
-        <input type="number" v-model="bigNum" @blur="bigBlur" />
+        <input type="number" v-model="bigNum" @blur="bigBlur" :placeholder="placeholder"/>
         <span class="clear-icon-box" v-show="smallNum || bigNum" @click="clear">
             <i class="clear-icon"></i>
         </span>
@@ -17,7 +17,7 @@ export default {
             clearShow: false
         }
     },
-    props: ['small', 'big', 'min', 'max', 'rangeSeparator'],
+    props: ['small', 'big', 'min', 'max', 'rangeSeparator','placeholder'],
     methods: {
         smallBlur () {
             if (this.isExit(this.min) && Number(this.smallNum) < Number(this.min)) { this.smallNum = this.min }
