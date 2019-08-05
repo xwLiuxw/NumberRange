@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <NumberRange :small.sync="small" :big.sync="big" :min="range[0]" :max="range[1]" rangeSeparator="~" />
+        <NumberRange :small.sync="small" :big.sync="big"  rangeSeparator="~" />
     </div>
 </template>
 
@@ -11,8 +11,8 @@ export default {
     name: 'app',
     data () {
         return {
-            small: null,
-            big: null,
+            small: 10,
+            big: 20,
             range: [0, 100]
         }
     },

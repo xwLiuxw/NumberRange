@@ -12,24 +12,23 @@
 export default {
     data () {
         return {
-            smallNum: this.min.toString() && Number(this.small) < Number(this.min) ? this.min : this.small,
-            bigNum: this.max.toString() && Number(this.big) > Number(this.max) ? this.max : this.big,
+            smallNum: this.isExit(this.min) && Number(this.small) < Number(this.min) ? this.min : this.small,
+            bigNum: this.isExit(this.max) && Number(this.big) > Number(this.max) ? this.max : this.big,
             clearShow: false
         }
     },
     props: ['small', 'big', 'min', 'max', 'rangeSeparator'],
     methods: {
         smallBlur () {
-            if (this.min.toString() && Number(this.smallNum) < Number(this.min)) { this.smallNum = this.min }
+            if (this.isExit(this.min) && Number(this.smallNum) < Number(this.min)) { this.smallNum = this.min }
             else {
-                // this.smallNum = Math.min(Number(this.smallNum), Number(this.max))
-                if (this.smallNum.toString()) this.smallNum = Math.min(Number(this.smallNum), Number(this.max))
+                if (String(this.smallNum)) this.smallNum = Number(this.smallNum) > Number(this.max) ? this.max : this.smallNum
                 this.$emit('update:small', this.smallNum)
             }
-            this.bigBlur()
+            this.bigNum && this.bigBlur()
         },
         bigBlur () {
-            if (this.max.toString() && Number(this.bigNum) > Number(this.max)) this.bigNum = this.max
+            if (this.isExit(this.max) && Number(this.bigNum) > Number(this.max)) this.bigNum = this.max
             else {
                 if (Number(this.smallNum) > Number(this.bigNum)) {
                     this.bigNum = this.smallNum
@@ -42,7 +41,11 @@ export default {
             this.bigNum = null
             this.$emit('update:small', null)
             this.$emit('update:big', null)
-        }
+        },
+        isExit(val){
+            if(String(val)==="undefined"||String(val)==="null") return false
+            else return true
+        } 
     }
 }
 </script>
