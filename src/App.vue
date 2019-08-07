@@ -1,11 +1,11 @@
 <template>
     <div id="app">
-        <NumberRange :small.sync="small" :big.sync="big" :min="range[0]" :max="range[1]"  rangeSeparator="~" placeholder="价格"/>
+        <VueNumberRange :small.sync="small" :big.sync="big" :min="range[0]" :max="range[1]"  rangeSeparator="~" placeholder="价格"/>
     </div>
 </template>
 
 <script>
-import NumberRange from './components/index'
+import VueNumberRange from './components/index'
 
 export default {
     name: 'app',
@@ -17,7 +17,7 @@ export default {
         }
     },
     components: {
-        NumberRange
+        VueNumberRange
     }
 }
 </script>

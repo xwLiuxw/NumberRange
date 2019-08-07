@@ -7,7 +7,7 @@
 
 ### Install
 ```
-npm i -S number-range
+npm i -S vue-number-range@0.1.2
 ```
 
 ### Preview

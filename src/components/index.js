@@ -1,2 +1,2 @@
-import NumberRange from './NumberRange.vue'
-export default NumberRange
+import VueNumberRange from './VueNumberRange.vue'
+export default VueNumberRange
